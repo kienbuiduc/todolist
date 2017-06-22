@@ -1,0 +1,15 @@
+/*
+* @Author: KienBeo
+* @Date:   2017-06-22 15:07:26
+* @Last Modified by:   KienBeo
+* @Last Modified time: 2017-06-22 15:43:22
+*/
+.unstyled {
+
+}
+.todolist-row {
+	padding: 20px;
+}
+a.col-md-2 {
+	cursor: pointer;
+}

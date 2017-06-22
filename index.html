@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toDoList">
+<head>
+	<title>ToDoList</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="mainController.js"></script>
+	<link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+
+<h2>Todo</h2>
+<div ng-controller="mainController as main">
+	<div class="todolist-row">
+		<div class="col-md-6"> 
+			From input
+			<div class="col-md-12"> 
+				<span class="text-danger">{{main.error}}</span></br>
+				<input type="text" ng-model="main.todoText" size="30" placeholder="add new todo here" ng-change="textChange()">
+				<input class="btn-primary" type="submit" value="add" ng-click="main.addTodo()">
+			</div>
+		</div>
+		<div class="col-md-6"> 
+			<div class="unstyled">
+				<div class="row">
+					<a class="col-md-2" ng-click="main.checkAll()">CheckAll</a>
+					<a class="col-md-2" ng-click="main.uncheckAll()">UncheckAll</a>
+					<a class="col-md-2"ng-click="main.remove()">Remove</a>
+				</div>
+				<div class="row" ng-repeat="todo in main.todos">
+					<div class="col-md-6">
+						<label class="checkbox">
+							<input type="checkbox" ng-model="todo.check">
+							<span >{{todo.text}}</span>
+						</label>
+					</div>
+					<div class="col-md-2">
+						<i class="btn btn-default icon-trash" ng-click="main.removeItem(todo)"></i>
+					</div>
+				</div>
+	      	</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
